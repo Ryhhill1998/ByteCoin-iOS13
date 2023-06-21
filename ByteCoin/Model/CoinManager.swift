@@ -35,7 +35,7 @@ struct CoinManager {
             }
             
             guard let safeData = data else { return }
-            print(String(data: safeData, encoding: .utf8))
+            parseJSON(for: safeData)
         }
         
         // 4. Start the task
@@ -43,6 +43,14 @@ struct CoinManager {
     }
     
     func parseJSON(for coinData: Data) {
+        let decoder = JSONDecoder()
         
+        do {
+            let decodedData = try decoder.decode(CoinData.self, from: coinData)
+            let price = decodedData.rate
+            print(price)
+        } catch {
+            print(error)
+        }
     }
 }
