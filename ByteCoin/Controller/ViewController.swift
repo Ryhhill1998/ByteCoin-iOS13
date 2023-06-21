@@ -43,8 +43,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func didUpdateCoinRate(_ coinManager: CoinManager, coinModel: CoinModel) {
         DispatchQueue.main.async {
-            print(coinModel.rate)
-            print(coinModel.currency)
+            self.bitcoinLabel.text = coinModel.formattedRateString
+            self.currencyLabel.text = coinModel.currency
         }
     }
 }
