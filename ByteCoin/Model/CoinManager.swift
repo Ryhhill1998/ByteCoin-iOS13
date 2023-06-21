@@ -10,6 +10,8 @@ import Foundation
 
 protocol CoinManagerDelegate {
     func didUpdateCoinRate(_ coinManager: CoinManager, coinModel: CoinModel)
+    
+    func didFailWithError(error: Error)
 }
 
 struct CoinManager {
